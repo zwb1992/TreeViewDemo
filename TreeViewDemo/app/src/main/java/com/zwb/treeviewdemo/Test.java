@@ -1,45 +1,31 @@
 package com.zwb.treeviewdemo;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import com.zwb.treeviewdemo.bean.TreeBean;
 import com.zwb.treeviewdemo.utils.Node;
 import com.zwb.treeviewdemo.utils.TreeHelper;
-import com.zwb.treeviewdemo.utils.adapter.TreeListViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-    private List<TreeBean> treeBeen;
-    private ListView listView;
-    private TreeAdapter<TreeBean> adapter;
+/**
+ * Created by zwb
+ * Description
+ * Date 17/6/5.
+ */
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        listView = (ListView) findViewById(R.id.listView);
+public class Test {
+    private static List<TreeBean> treeBeen;
+    public static void main(String[] args){
         try {
             init();
-            adapter = new TreeAdapter(listView, treeBeen, this, 1);
-            listView.setAdapter(adapter);
-            adapter.setOnTreeNodeClickListener(new TreeListViewAdapter.OnTreeNodeClickListener() {
-                @Override
-                public void onClick(Node node, int position) {
-                    Toast.makeText(MainActivity.this, node.getName(), Toast.LENGTH_SHORT).show();
-                }
-            });
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void init() throws IllegalAccessException {
+    private static void init() throws IllegalAccessException {
         treeBeen = new ArrayList<>();
         TreeBean treeBean = new TreeBean(0, 0, "根节点0-0");
         treeBeen.add(treeBean);
@@ -60,7 +46,13 @@ public class MainActivity extends AppCompatActivity {
         treeBean = new TreeBean(8, 3, "根节点1-1-0");
         treeBeen.add(treeBean);
 
-        List<Node> nodes = TreeHelper.convertBeanToNode(treeBeen);
-        Log.e("TAG", "===" + nodes);
+        List<Node> allNodes = TreeHelper.sortNodes(treeBeen,1);
+//        Log.e("TAG", "===" + nodes.size());
+        System.out.println("===" + allNodes.toString());
+
+        List<Node> visibleNode = TreeHelper.filterVisibleNodes(allNodes);
+        System.out.println("===" + visibleNode.toString());
+
     }
+
 }

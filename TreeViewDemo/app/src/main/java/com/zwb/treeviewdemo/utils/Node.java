@@ -142,8 +142,6 @@ public class Node {
                 ", level=" + level +
                 ", isExpand=" + isExpand +
                 ", icon=" + icon +
-                ", parent=" + parent +
-                ", children=" + children +
                 '}';
     }
 }
