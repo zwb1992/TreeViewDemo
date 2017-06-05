@@ -25,6 +25,15 @@ public class Node {
     private Node parent;
     private List<Node> children = new ArrayList<>();
 
+    public Node(int id, int pId, String name) {
+        this.id = id;
+        this.pId = pId;
+        this.name = name;
+    }
+
+    public Node() {
+    }
+
     public int getId() {
         return id;
     }
