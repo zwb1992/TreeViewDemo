@@ -41,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() throws IllegalAccessException {
         treeBeen = new ArrayList<>();
-        TreeBean treeBean = new TreeBean(0, 0, "根节点0-0");
+        TreeBean treeBean = new TreeBean(0, -1, "根节点0");
         treeBeen.add(treeBean);
-        treeBean = new TreeBean(1, 0, "根节点1-0");
+        treeBean = new TreeBean(1, -1, "根节点1");
         treeBeen.add(treeBean);
-        treeBean = new TreeBean(2, 0, "根节点2-0");
+        treeBean = new TreeBean(2, -1, "根节点2");
         treeBeen.add(treeBean);
         treeBean = new TreeBean(3, 1, "根节点1-1");
         treeBeen.add(treeBean);
@@ -55,9 +55,27 @@ public class MainActivity extends AppCompatActivity {
         treeBeen.add(treeBean);
         treeBean = new TreeBean(6, 2, "根节点2-2");
         treeBeen.add(treeBean);
-        treeBean = new TreeBean(7, 0, "根节点7-0");
+        treeBean = new TreeBean(7, 0, "根节点0-1");
         treeBeen.add(treeBean);
-        treeBean = new TreeBean(8, 3, "根节点1-1-0");
+        treeBean = new TreeBean(8, 3, "根节点1-1-1");
+        treeBeen.add(treeBean);
+        treeBean = new TreeBean(9, -1, "根节点9");
+        treeBeen.add(treeBean);
+        treeBean = new TreeBean(10, -1, "根节点10");
+        treeBeen.add(treeBean);
+        treeBean = new TreeBean(11, -1, "根节点11");
+        treeBeen.add(treeBean);
+        treeBean = new TreeBean(12, -1, "根节点12");
+        treeBeen.add(treeBean);
+        treeBean = new TreeBean(13, -1, "根节点13");
+        treeBeen.add(treeBean);
+        treeBean = new TreeBean(14, -1, "根节点14");
+        treeBeen.add(treeBean);
+        treeBean = new TreeBean(15, 13, "根节点13-1");
+        treeBeen.add(treeBean);
+        treeBean = new TreeBean(16, 14, "根节点14-1");
+        treeBeen.add(treeBean);
+        treeBean = new TreeBean(17, -1, "根节点17");
         treeBeen.add(treeBean);
 
         List<Node> nodes = TreeHelper.convertBeanToNode(treeBeen);
